@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block homeactive %}active {% endblock homeactive %}
+{% block title %}Home {% endblock title %} 
+{% block js %}
+ <script>
+ let previews = document.getElementsByClassName('preview')
+ Array.from(previews).forEach((element)=>{
+    element.innerHTML = element.innerText;
+ })
+ </script>
+ {% endblock js %}
+
+
+
+{% block body %} 
+<div class="container my-2">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to my blog</h1>
+        <p class="lead">Just Code it bro. I will make available you differet technologies for you to learn. Please bookmark the blog and never miss the updates. Hit like if you like the content.</p>
+            <hr class="my-4">
+        <p>For more info , click the button.</p>
+        <a class="btn btn-primary btn-lg" href="/blog1" role="button">MyBlog</a>
+    </div>
+</div>
+
+<div class="container">
+<h3>Popular Blog Posts</h3>
+
+   {% for post in allPosts   %}
+        <div class="my-4 row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">{{post.author}} <span>({{post.views}}views)</span></strong>
+                <h3 class="mb-0"><a class="text-dark text-decoration-none" href="{{post.slug}}">{{post.title}}</a></h3>
+                <div class="mb-1 text-muted">{{post.timestamp}}</div>
+                <p class="card-text mb-auto"><div class="preview">{{post.content|safe| truncatechars:300}}</div></p>
+                <div class="my-3">
+                    <a href="{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+                </div>           
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock body %} 

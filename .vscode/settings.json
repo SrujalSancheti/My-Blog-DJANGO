@@ -1,0 +1,11 @@
+{
+    "python.pythonPath": "myprojenv\\Scripts\\python.exe",
+    "debug.node.autoAttach": "off",
+    "editor.codeActionsOnSave": null,
+  
+    // Configures if the built-in HTML language support validates embedded scripts.
+    "html.validate.scripts": true,
+
+    // Configures if the built-in HTML language support validates embedded styles.
+    "html.validate.styles": true,
+}
